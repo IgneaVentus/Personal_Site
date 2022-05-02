@@ -22,7 +22,7 @@
 			"name": "Strona portfolio",
 			"tools": ["JavaScript", "PHP", "CSS3", "HTML5"],
 			"description": ["Strona na której się obecnie znajdujesz. Potrzebowałem miejsca aby móc się pokazać potencjalnym pracodawcą i stwierdziłem, że napisanie tej strony od zera będzie dobrym pomysłem.", "Strona ta jest postawiona na backendzie z PHP, używając JavaScriptu jako frontendu. Jest zbudowana modularnie - nawigacja, stopka oraz główna część strony są ładowane oddzielnie - oraz może działać zarówno z włączonym jak i wyłączonym JavaScriptem w przeglądarce. Gdy Javascript jest wyłączony, wszystkie funkcje wykonuje jedynie backend. Gdy jest włączony, JavaScript nadpisuje przyciski i przejmuje działanie strony sprawiając, że strona jest ładowana dynamicznie (AJAX). Prócz tego strona jest budowana w idealogii mobile first oraz ma wbudowany tryb nocny (wykrywany przez przeglądarkę)"],
-			"link": "#"
+			"link": "https://github.com/IgneaVentus/Personal_Site"
 		}
 	]
 }
