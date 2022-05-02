@@ -1,0 +1,309 @@
+:root {
+    --bgcolor: rgb(176, 172, 150);
+    --maincolor: rgb(220,220,220);
+    --navcolorbase: calc(70 - 70 * var(--darkmode));
+    --navcolor: rgb(var(--navcolorbase),var(--navcolorbase),var(--navcolorbase));
+    --footercolor: rgb(0,0,0);
+    --mainfontcolor: rgb(0,0,0);
+    --darkmode: 0;
+    background-color: var(--bgcolor);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --darkmode: 0 !important;
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --darkmode: 1 !important;
+    }
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    min-height: 100vh;
+    color: var(--mainfontcolor);
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+#header {
+    background: url("/img/bgimage2.webp") no-repeat center;
+    min-height: min-content;
+    background-size: 200%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* -webkit-filter: brightness(calc(1 - 0.2 * var(--darkmode))); */
+    /* filter: brightness(calc(1 - 0.2 * var(--darkmode))); */
+    transition: filter 0.5s, -webkit-filter 0.5s;
+    margin-top: 7vh;
+}
+
+#header > a {
+    height: fit-content;
+    width: fit-content;
+}
+
+#fimg {
+    box-sizing: border-box;
+    width: auto;
+    height: 70%;
+    border-radius: 50%;
+    border: 0.25rem whitesmoke solid;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    object-fit: contain;
+    padding:0px;
+    margin:0px;
+}
+
+nav {
+    box-sizing: border-box;
+    z-index: 1;
+    position: fixed;
+    top: -43vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding:0px;
+    margin:0px;
+    width:100vw;
+    border-bottom: 0.15rem whitesmoke solid;
+    height: 50vh;
+    font-size:125%;
+    background-color: var(--navcolor) !important;
+    transition: top 0.5s, background-color 0.5s;
+}
+
+nav::after {
+    content: "≡";
+    font-size: 125%;
+    color: silver;
+}
+
+nav:hover {
+    top: 0px;
+}
+
+nav > a {
+    color: whitesmoke;
+    font-style: unset;
+    text-decoration: none;
+    padding: 0.5em 2em;
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+    font-weight: 600;
+}
+
+nav > a:hover {
+    color: var(--maincolor);
+}
+
+nav > a > img {
+    height: 1em;
+    width: auto;
+}
+
+footer {
+    background: var(--footercolor);
+    color: silver;
+    width: 100%;
+    height: 3em;
+    position: relative;
+    bottom: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer a {
+    font-weight: bold;
+    color: aqua !important;
+}
+
+footer > a > img {
+    height: 1.40rem;
+    width: auto;
+}
+
+#mainContainer {
+    max-width: 100%;
+    min-height: 60vh;
+    display: block;
+    background-color: var(--bgcolor);
+    -webkit-filter: invert(calc(100*var(--darkmode)));
+    filter: invert(calc(100*var(--darkmode)));
+    transition: filter 0.5s, -webkit-filter 0.5s;
+    padding: none;
+}
+
+main {
+    grid-area: main;
+    background-color: var(--maincolor);
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 1.5em;
+    margin: 0px;
+    text-align: justify;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+main > header {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+main > p {
+    text-indent: 2rem;
+}
+
+main > table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main > table tr {
+    border-bottom: 1px var(--mainfontcolor) solid;
+}
+
+main > table tr:last-child {
+    border-bottom: none;
+}
+
+main > table tr:nth-of-type(odd) {
+    -webkit-backdrop-filter: invert(10%);
+    backdrop-filter: invert(10%);
+}
+
+#ad1 {
+    grid-area: ad1;
+}
+
+#ad2 {
+    grid-area: ad2;
+}
+
+.smalltext {
+    font-size: 50%;
+}
+
+main > form {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+main > form > input, main > form > textarea {
+    width: 100%;
+    border-radius: 5px;
+}
+
+main > form > input {
+    height: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+main > form > input:focus , main > form > textarea:focus {
+    border-width: 2px;
+}
+
+.buttongroup {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.buttongroup  button {
+    margin: 0px;
+    padding: 0.25rem;
+    height: 2rem;
+    box-sizing: border-box;
+    width: 100%;
+    font-weight: normal;
+    transition: filter 0.5s, -webkit-filter 0.5s, font-weight 0.5s;
+}
+
+.buttongroup button:hover {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    font-weight: bold;
+}
+.buttongroup .left {
+    border-radius: 15px 0px 0px 15px;
+}
+
+.buttongroup .right {
+    border-radius: 0px 15px 15px 0px;
+}
+
+small {
+    font-size: 50%;
+    font-weight: bold;
+}
+
+.portfolio-item {
+    border: 3px grey solid;
+    border-radius: 0px 75px 0px 0px;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    margin: 1em 0px;
+}
+
+.portfolio-item:nth-child(odd) {
+    border-radius: 75px 0px 0px 0px;
+    text-align: right;
+}
+
+@media only screen and (min-width: 768px) {
+
+    nav {
+        position: sticky !important;
+        width: 100% !important;
+        height: 30% !important;
+        border-top: 0.15rem whitesmoke solid;
+        flex-flow: row nowrap !important;
+        background: linear-gradient(180deg, dimgray, transparent, dimgrey);
+        transform: none;
+    }
+
+    nav::after {
+        content: none !important;
+    }
+    
+    nav:hover {
+        transform: none !important;
+    }
+
+    #header {
+        margin-top: auto;
+        background-size: 100% !important;
+    }
+
+    #fimg {
+        margin:0.5rem !important;
+    }
+
+    #mainContainer {
+        display: grid !important;
+        grid-template-areas:
+            "ad1 main ad2";
+        grid-template-columns: 15vw auto 15vw;
+        row-gap: 0px;
+        column-gap: 0.5em;
+        background-color: var(--bgcolor) !important;
+        padding: initial !important;
+    }
+}

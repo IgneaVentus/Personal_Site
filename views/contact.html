@@ -1,0 +1,16 @@
+            <main>
+                <h2>Zapraszam do kontaktu poprzez formularz kontaktowy poniżej, lub poprzez podane linki!</h2>
+                <div class="buttongroup">
+                    <button type="reset" class="left" form="contactForm">Wyczyść formularz</button>
+                    <button onclick="window.location.href='/service?q=mail'" class="middle">Przekieruj do domyślnej aplikacji emailowej</button>
+                    <button type="submit" class="right" form="contactForm">Wyślij formularz</button>
+                </div>
+                <form id="contactForm" action="/mail" method="post">
+                    <label for="mailAddress">Adres zwrotny</label>
+                    <input type="email" placeholder="placeholder@example.com" id="mailAddress">
+                    <label for="mailTopic">Tytuł wiadomości</label>
+                    <input type="text" placeholder="Tytuł wiadomości" id="mailTopic">
+                    <label for="mailContent">Treść wiadomości</label>
+                    <textarea rows=20 form="contactForm" placeholder="Treść wiadomości..." id="mailContent"></textarea>
+                </form>
+            </main>
