@@ -47,7 +47,9 @@ body {
 }
 
 #header > a {
+    height: -moz-fit-content;
     height: fit-content;
+    width: -moz-fit-content;
     width: fit-content;
 }
 
@@ -90,7 +92,7 @@ nav:hover {
     top: 0px;
 }
 
-nav > a {
+nav > a, nav > #menuBurger {
     color: whitesmoke;
     font-style: unset;
     text-decoration: none;
@@ -104,6 +106,12 @@ nav > a {
 nav > a > img {
     height: 1em;
     width: auto;
+}
+
+#menuBurger {
+    display: initial;
+    padding: 0px !important;
+    font-size: 125%;
 }
 
 footer {
@@ -291,7 +299,7 @@ small {
     }
 
     #menuBurger {
-        display: none;;
+        display: none !important;
     }
 
     .buttongroup {
@@ -321,10 +329,6 @@ small {
         -webkit-filter: invert(100%);
         filter: invert(100%);
         font-weight: bold;
-    }
-
-    nav::after {
-        content: none !important;
     }
     
     nav:hover {
