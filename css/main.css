@@ -86,12 +86,6 @@ nav {
     transition: top 0.5s, background-color 0.5s;
 }
 
-nav::after {
-    content: "≡";
-    font-size: 125%;
-    color: silver;
-}
-
 nav:hover {
     top: 0px;
 }
@@ -107,10 +101,6 @@ nav > a {
     font-weight: 600;
 }
 
-nav > a:hover {
-    color: var(--maincolor);
-}
-
 nav > a > img {
     height: 1em;
     width: auto;
@@ -120,11 +110,11 @@ footer {
     background: var(--footercolor);
     color: silver;
     width: 100%;
-    height: 3em;
+    height: fit-content;
     position: relative;
     bottom: 0px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -169,22 +159,31 @@ main > p {
     text-indent: 2rem;
 }
 
-main > table {
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tableWrapper > table {
     width: 100%;
     border-collapse: collapse;
 }
 
-main > table tr {
+.tableWrapper > table tr {
     border-bottom: 1px var(--mainfontcolor) solid;
 }
 
-main > table tr:last-child {
+.tableWrapper > table tr:last-child {
     border-bottom: none;
 }
 
-main > table tr:nth-of-type(odd) {
+.tableWrapper > table tr:nth-of-type(odd) {
     -webkit-backdrop-filter: invert(10%);
     backdrop-filter: invert(10%);
+}
+
+.tableWrapper > table td {
+    padding: 0px 0.5em 0px 0.5em;
 }
 
 #ad1 {
@@ -193,10 +192,6 @@ main > table tr:nth-of-type(odd) {
 
 #ad2 {
     grid-area: ad2;
-}
-
-.smalltext {
-    font-size: 50%;
 }
 
 main > form {
@@ -220,7 +215,7 @@ main > form > input:focus , main > form > textarea:focus {
 
 .buttongroup {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -229,24 +224,26 @@ main > form > input:focus , main > form > textarea:focus {
 .buttongroup  button {
     margin: 0px;
     padding: 0.25rem;
-    height: 2rem;
+    height: 3em;
     box-sizing: border-box;
+    border: 1px black solid;
     width: 100%;
     font-weight: normal;
     transition: filter 0.5s, -webkit-filter 0.5s, font-weight 0.5s;
 }
 
-.buttongroup button:hover {
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-    font-weight: bold;
-}
 .buttongroup .left {
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 15px 15px 0px 0px;
+    border-right: 0px;
 }
 
 .buttongroup .right {
-    border-radius: 0px 15px 15px 0px;
+    border-radius: 0px 0px 15px 15px;
+    border-left: 0px;
+}
+
+.buttongroup > button:last-child {
+    margin-bottom: 1rem;
 }
 
 small {
@@ -279,6 +276,53 @@ small {
         transform: none;
     }
 
+    nav > a:hover {
+        color: var(--maincolor);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        nav {
+            border-color: silver;
+        }
+
+        #fimg {
+            border-color: silver;
+        }
+    }
+
+    #menuBurger {
+        display: none;;
+    }
+
+    .buttongroup {
+        flex-flow: row nowrap;
+        margin-bottom: 1rem;
+    }
+
+    .buttongroup button {
+        min-height: 2em;
+        max-height: 2.8em;
+        
+    }
+
+    .buttongroup .left {
+        border-radius: 15px 0px 0px 15px;
+    }
+    
+    .buttongroup .right {
+        border-radius: 0px 15px 15px 0px;
+    }
+
+    .buttongroup > button:last-child {
+        margin: 0px;
+    }
+
+    .buttongroup button:hover {
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+        font-weight: bold;
+    }
+
     nav::after {
         content: none !important;
     }
@@ -305,5 +349,10 @@ small {
         column-gap: 0.5em;
         background-color: var(--bgcolor) !important;
         padding: initial !important;
+    }
+
+    footer {
+        height: 3em;
+        flex-flow: row wrap;
     }
 }
